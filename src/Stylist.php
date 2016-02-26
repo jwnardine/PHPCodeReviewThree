@@ -45,10 +45,30 @@
             }
             return $stylists;
         }
+
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM stylists WHERE id = {$this->getId()};");
+            $GLOBALS['DB']->exec("DELETE FROM clients WHERE stylist_id = {$this->getId()};");
+        }
+
+
         static function deleteAll()
-       {
-         $GLOBALS['DB']->exec("DELETE FROM stylists;");
-       }
+        {
+            $GLOBALS['DB']->exec("DELETE FROM stylists;");
+        }
+
+       static function find($search_id)
+        {
+            $found_stylist = null;
+            $stylists = Stylist::getAll();
+            foreach ($stylists as $stylist) {
+                if ($stylist->getId() == $search_id) {
+                    $found_stylist = $stylist;
+                }
+            }
+            return $found_stylist;
+        }
 
     }
  ?>
