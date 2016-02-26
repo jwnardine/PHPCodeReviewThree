@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/css/bootstrap.min.css" type="text/css">
+        <link rel="stylesheet" href="/css/bootstrap-theme.min.css" type="text/css">
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h1>The Hair Stylist List</h1>
+                <h4>Got a hair stylist? Add them to the list!</h4>
+            </div>
+<!-- // maybe fix? -->
+            <form action="/stylists" method="post">
+                <label for="name">Stylist Name:</label>
+                <input type="text" name="name">
+                <button class="btn btn-success" type="submit" name="button">Add!</button>
+            </form>
+            <ul>
+                {% for stylist in stylists %}
+                <h4><a class="client_names" href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></h4>
+                {% endfor %}
+            </ul>
+
+            <form action='/delete_stylists' method='post'>
+                <button class="btn btn-danger" type='submit'>Delete ALL the stylists</button>
+            </form>
+        </div>
+
+
+
+    </body>
+</html>
