@@ -28,6 +28,42 @@
         function getStylistId() {
             return $this->stylist_id;
         }
-
+        function save() //saves to database CHOMP
+        {
+            $GLOBALS['DB']->exec("INSERT INTO clients (client_name, stylist_id) VALUES ('{$this->getClientName()}', {$this->getStylistId()});");
+            $this->id = $GLOBALS['DB']->lastInsertId();
+        }
+        static function getAll()
+        {
+            $returned_clients = $GLOBALS['DB']->query("SELECT * FROM clients;");
+            $clients = [];
+            foreach ($returned_clients as $client) {
+                $client_name = $client['client_name'];
+                $id = $client['id']; //?
+                $stylist_id = $client['stylist_id'];
+                $new_client = new Client($client_name, $id, $stylist_id);
+                array_push($clients, $new_client);
+            }
+            return $clients;
+        }
+        static function find($search_id)
+        {
+            $found_client = null;
+            $clients = Client::getAll();
+            foreach ($clients as $client) {
+                if ($client->getId() == $search_id) {
+                    $found_client = $client;
+                }
+            }
+            return $found_client;
+        }
+        static function deleteAll(){
+            $GLOBALS['DB']->exec("DELETE FROM clients");
+        }
+		function update($new_name)
+		{
+		    $GLOBALS['DB']->exec("UPDATE clients SET client_name = '{$new_name}' WHERE id = {$this->getId()};");
+		    $this->setClientName($new_name);
+		}
     }
 ?>
