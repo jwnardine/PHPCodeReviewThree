@@ -1,0 +1,31 @@
+<<?php
+    /**
+    * @backupGlobals disabled
+    * @backupStaticAttributes disabled
+    */
+    require_once "src/Stylist.php";
+    $server = 'mysql:host=localhost;dbname=hair_salon_test';
+    $username = 'root';
+    $password = 'root';
+    $DB = new PDO($server, $username, $password);
+    class StylistTest extends PHPunit_Framework_TestCase
+    {
+        // protected function tearDown()
+        // {
+        //     Stylist::deleteAll();
+        //     Client::deleteAll();
+        // }
+        function test_getName()
+        {
+            //Arrange
+            $name = "Sandra Styles";
+            $test_stylist = new Stylist($name);
+
+            //Act
+            $result = $test_stylist->getName();
+
+            //Assert
+            $this->assertEquals($name, $result);
+        }
+    }
+ ?>
