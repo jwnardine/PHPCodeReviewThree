@@ -59,6 +59,7 @@
             //Assert
             $this->assertEquals(true, is_numeric($result));
         }
+
         function test_save()
         {
             //Arrange
@@ -72,6 +73,7 @@
             //Assert
             $this->assertEquals($test_client, $result[0]);
         }
+
         function test_getAll()
         {
             //Arrange
@@ -90,6 +92,7 @@
             //Assert
             $this->assertEquals([$test_client, $test_client2], $result);
         }
+
         function test_find()
         {
             //Arrange
@@ -108,6 +111,7 @@
             //Assert
             $this->assertEquals($test_client2, $result);
         }
+
         function test_update()
     		{
       			//Arrange
@@ -125,5 +129,6 @@
       			//Assert
       			$this->assertEquals('Billy Bob Client', $test_client->getClientName());
     		}
-        }
+
+    }
 ?>
