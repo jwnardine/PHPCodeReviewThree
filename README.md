@@ -26,40 +26,7 @@ If the project home page DOES NOT show up in the browser, you may have to delete
 
 _PHP, PHPUnit Twig, Silex, Markdown, Github_
 
-## MySql Log:
-
-Last login: Fri Feb 26 14:32:39 on console
-epicodus-49:desktop Guest$ mysql.server start
-Starting MySQL
- SUCCESS!
-epicodus-49:desktop Guest$ mysql -uroot -proot
-mysql: [Warning] Using a password on the command line interface can be insecure.
-Welcome to the MySQL monitor.  Commands end with ; or \g.
-Your MySQL connection id is 2
-Server version: 5.7.10 Homebrew
-
-Copyright (c) 2000, 2015, Oracle and/or its affiliates. All rights reserved.
-
-Oracle is a registered trademark of Oracle Corporation and/or its
-affiliates. Other names may be trademarks of their respective
-owners.
-
-Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
-
-mysql> CREATE DATABASE hair_salon;
-Query OK, 1 row affected (0.00 sec)
-
-mysql> USE hair_salon;
-Database changed
-mysql> CREATE TABLE stylists (name VARCHAR(255), id serial PRIMARY KEY);
-Query OK, 0 rows affected (0.11 sec)
-
-mysql> CREATE TABLE clients (client_name VARCHAR(255), id serial PRIMARY KEY, stylist_id INT);
-Query OK, 0 rows affected (0.11 sec)
-
-mysql>
-
-### mySql Inputs
+### mySql Log
 
 mysql> CREATE DATABASE hair_salon;
 Query OK, 1 row affected (0.00 sec)
