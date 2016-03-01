@@ -6,8 +6,6 @@
 
 _This is Jon Nardine's third PHP code review, which will test his ability to use PHP, Twig, and Silex, as well as functionality for using a MySQL database. The site will allow the user to add a hair stylist to an empty list of stylists, and then link them to a dedicated page to each created stylist, where they will be able to add clients for each particular stylist. Both the stylists and the clients will be updateable and deleteable via appropriate CRUD functions and routes._
 
-__PLEASE SEE BELOW FOR NOTE ABOUT PHPMYADMIN__
-
 ## Setup
 
 Please visit this website:
@@ -61,9 +59,19 @@ Query OK, 0 rows affected (0.11 sec)
 
 mysql>
 
-##NOTE ABOUT PHPMYADMIN
+### mySql Inputs
 
-__During the last 30 minutes of working on this project, I went back to my opened phpmyadmin tab, hit the export button, and got the dreaded "Sorry, the page you are looking for could not be found" message. Tried restarting apache, reconnecting localhost:8080, and googling the problem to no avail. So basically, I did everything EXCEPT create the .sql file requested for the code review. Will troubleshoot further over the weekend, not sure what went wrong. SORRY!!!__
+mysql> CREATE DATABASE hair_salon;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> USE hair_salon;
+Database changed
+mysql> CREATE TABLE stylists (name VARCHAR (255), id serial PRIMARY KEY);
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> CREATE TABLE clients (client_name VARCHAR (255), id serial PRIMARY KEY, stylist_id INT);
+Query OK, 0 rows affected (0.04 sec)
+
 
 ### Legal
 
